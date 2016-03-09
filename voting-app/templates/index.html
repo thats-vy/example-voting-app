@@ -30,6 +30,10 @@
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
+
+    <script src='{{ url_for('static',filename='faker.js') }}'></script>
+
+
     {% if vote %}
     <script>
       var vote = "{{vote}}";
@@ -46,5 +50,19 @@
       }
     </script>
     {% endif %}
+
+    <script type="text/javascript">
+      daovoice('init', {
+        app_id: "23f3431a",
+        user_id: faker.random.uuid(), // 必填: 该用户在您系统上的唯一ID
+        email: faker.internet.email(), // 选填:  该用户在您系统上的主邮箱
+        name: faker.name.findName(), // 选填: 用户名
+      });
+
+      daovoice('update');
+
+    </script>
+
+
   </body>
 </html>
