@@ -13,8 +13,8 @@ import socket
 import random
 import json
 
-option_a = os.getenv('OPTION_A', "希拉里")
-option_b = os.getenv('OPTION_B', "川普")
+option_a = os.getenv('OPTION_A', u"希拉里")
+option_b = os.getenv('OPTION_B', u"川普")
 hostname = socket.gethostname()
 
 redis = connect_to_redis("redis")
