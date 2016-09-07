@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# import sys
+# reload(sys)
+# sys.setdefaultencoding("utf-8")
 
 from flask import Flask
 from flask import render_template
@@ -21,7 +21,7 @@ redis = connect_to_redis("redis")
 app = Flask(__name__)
 
 
-@app.route("/", methods=['POST','GET'])
+@app.route("/", methods=['POST', 'GET'])
 def hello():
     voter_id = request.cookies.get('voter_id')
     if not voter_id:
@@ -46,4 +46,4 @@ def hello():
 
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
