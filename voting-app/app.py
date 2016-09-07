@@ -27,7 +27,7 @@ def hello():
     if not voter_id:
         voter_id = hex(random.getrandbits(64))[2:-1]
 
-    vote = None
+    vote = request.cookies.get('vote', '')
 
     if request.method == 'POST':
         vote = request.form['vote']
@@ -42,6 +42,7 @@ def hello():
         vote=vote,
     ))
     resp.set_cookie('voter_id', voter_id)
+    resp.set_cookie('vote', vote)
     return resp
 
 
